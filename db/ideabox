@@ -1,45 +1,49 @@
 ---
 ideas:
-- title: Whoomp
-  description: There it is!
-  rank: 1
-  id: 0
-  tags: hip hop
 - title: OMG
-  description: Becky, would you look at her butt!
-  rank: 9
-  id: 1
-  tags: hip hop, butts
+  description: Becky, would you look at that butt!
+  rank: 2
+  id: 0
+  tags: hip hop,butts
 - title: Listen all yall
-  description: It's a sabotage!!
-  rank: 3
-  id: 2
-  tags: hip hop
-- title: new
-  description: kickass idea
-  rank: 0
-  id: 3
-  tags: new, idea
-- title: another one
-  description: let's try this
-  tags: sample
-- title: the funky
-  description: cold medina
-  tags: hip hop, colds
-- title: I like
-  description: big butts and I can not lie
+  description: it's a sabotage!!
   rank: 1
-  id: 6
-  tags: butts, hip hop
-- title: another one
-  description: better than the last one
-  tags: new
-- title: check yourself
+  id: 1
+  tags: hip hop
+  updated_at: !ruby/object:DateTime 2013-10-17 17:25:29.000000000 -06:00
+- title: I like
+  description: big butts and i cannot lie
+  tags: butts,hip hop
+  created_at: !ruby/object:DateTime 2013-10-17 17:17:39.000000000 -06:00
+- title: you better check yourself
   description: before you wreck yourself
   tags: hip hop
-- title: '11'
-  description: this one goes to
-  tags: spinal tap
-- title: ladi dadi
+  created_at: !ruby/object:DateTime 2013-10-17 17:18:06.000000000 -06:00
+- title: this idea
+  description: is better than the last one!
+  tags: ideas
+  created_at: !ruby/object:DateTime 2013-10-17 17:18:37.000000000 -06:00
+- title: bad luck
+  description: is better than no luck at all
+  tags: luck
+  created_at: !ruby/object:DateTime 2013-10-17 17:19:16.000000000 -06:00
+- title: ladi dodi
   description: we like to party
+  rank: 0
+  id: 6
   tags: hip hop
+- title: i just had the best idea
+  description: if only I could remember it!
+  tags: ideas
+  created_at: !ruby/object:DateTime 2013-10-17 17:20:58.000000000 -06:00
+- title: party
+  description: like its 1999
+  rank: 0
+  id: 8
+  tags: rock,prince
+  created_at: !ruby/object:DateTime 2013-10-17 17:27:16.000000000 -06:00
+  updated_at: !ruby/object:DateTime 2013-10-17 17:27:40.000000000 -06:00
+- title: heather
+  description: wonderful idea
+  tags: ideas
+  created_at: !ruby/object:DateTime 2013-10-17 19:36:06.000000000 -06:00

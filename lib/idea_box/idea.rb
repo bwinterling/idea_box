@@ -10,6 +10,8 @@ class Idea
     @rank = attributes["rank"] || 0
     @id = attributes["id"]
     @tags = attributes["tags"]
+    @created_at = attributes["created_at"]
+    @updated_at = attributes["updated_at"]
   end
 
   def tags_array

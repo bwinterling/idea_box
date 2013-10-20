@@ -58,6 +58,14 @@ class IdeaBoxApp < Sinatra::Base
       }
   end
 
+  get '/by_date' do
+    erb :by_date, locals: {
+        ideas: IdeaStore.grouped_by_tags,
+        idea: Idea.new,
+        tags: IdeaStore.all_tags
+      }
+  end
+
   delete '/:id' do |id|
     IdeaStore.delete(id.to_i)
     redirect '/'

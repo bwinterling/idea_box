@@ -66,12 +66,14 @@ class IdeaStore
   def self.update(id, params)
     idea = find(id.to_i)
     updated_params = idea.to_h.merge(params)
+    updated_params["updated_at"] = DateTime.now
     database.transaction do
       database['ideas'][id] = updated_params
     end
   end
 
   def self.create(data)
+    data["created_at"] = DateTime.now
     database.transaction do
       database['ideas'] << data
     end
