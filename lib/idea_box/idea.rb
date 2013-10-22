@@ -9,28 +9,18 @@ class Idea
     @description = attributes["description"]
     @rank = attributes["rank"] || 0
     @id = attributes["id"]
-    @tags = attributes["tags"]
+    @tags = attributes["tags"].to_s.upcase
     @created_at = attributes["created_at"]
     @updated_at = attributes["updated_at"]
   end
 
   def tags_array
-    if @tags.nil?
-      tags_array = []
-    elsif @tags == []
-      tags_array = @tags
-    else
-      tags_array = @tags.split(",").map {|tag| tag.strip}
-    end
-    tags_array
+    return [] if @tags.nil?
+    @tags.split(",").map {|tag| tag.strip}
   end
 
   def <=>(other)
     other.rank <=> rank
-  end
-
-  def save
-    IdeaStore.create()
   end
 
   def to_h

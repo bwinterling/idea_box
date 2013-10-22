@@ -21,7 +21,7 @@ class IdeaStore
   end
 
   def self.all_tags
-    all_tags = all.map { |idea| idea.tags_array }.flatten.uniq
+    all.map { |idea| idea.tags_array }.flatten.uniq.sort
   end
 
   def self.view_by_tag(tag)
@@ -32,10 +32,14 @@ class IdeaStore
     end
   end
 
-  def self.grouped_by_tags
-    gbt = all_tags.each_with_object({}) {|tag, h| h[tag] = nil}
-    gbt.each_key do |key|
-      gbt[key] = all.find_all {|idea| idea.tags_array.include?(key)}
+  def self.grouped_by_tags(tag)
+    gbt = {}
+    if tag == "All"
+      all_tags.each do |key|
+        gbt[key] = all.find_all {|idea| idea.tags_array.include?(key)}
+      end
+    else
+      gbt[tag] = all.find_all {|idea| idea.tags_array.include?(tag)}
     end
     gbt
   end

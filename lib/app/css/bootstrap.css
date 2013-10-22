@@ -4185,7 +4185,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   padding: 15px 15px;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 20px;
 }
 
@@ -4375,12 +4375,15 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #000000;
+  /*background-color: #f8f8f8;
+  border-color: #e7e7e7;*/
+  border-color: #000000;
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  /*color: #777777;*/
+  color: #F2F5F7;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -4919,11 +4922,11 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
-  margin-bottom: 30px;
-  font-size: 21px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
   font-weight: 200;
-  line-height: 2.1428571435;
+  line-height: 2;
   color: inherit;
   background-color: #eeeeee;
 }
@@ -4943,7 +4946,7 @@ a.list-group-item.active > .badge,
 
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding-top: 48px;
+    padding-top: 30px;
     padding-bottom: 48px;
   }
   .container .jumbotron {

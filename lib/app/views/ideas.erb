@@ -1,0 +1,21 @@
+<% ideas.each do |idea| %>
+  <div class="col-md-4 col-sm-4 panel panel-default">
+      <div class="panel-heading">
+        <strong>Title:</strong> <%= idea.title %><br/>
+      </div>
+      <div class="panel-body">
+        <strong>Desc:</strong> <%= idea.description %><br/>
+        <strong>Tags:</strong> <%= idea.tags_array.join(",") %><br/>
+        <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+          <input type='submit' value="Bump" class="btn btn-default btn-xs"/>
+        </form>
+        <form action="/<%= idea.id %>/edit" method='GET' style="display: inline">
+          <input type="submit" value="Edit" class="btn btn-default btn-xs"/>
+        </form>
+        <form action='/<%= idea.id %>' method='POST' style="display: inline">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type='submit' value="delete" class="btn btn-default btn-xs"/>
+        </form><br/>
+      </div>
+  </div>
+<% end %>

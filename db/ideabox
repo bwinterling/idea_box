@@ -1,10 +1,12 @@
 ---
 ideas:
-- title: OMG
+- title: OMG!
   description: Becky, would you look at that butt!
   rank: 2
   id: 0
-  tags: hip hop,butts
+  tags: HIP HOP,BUTTS
+  created_at: 
+  updated_at: !ruby/object:DateTime 2013-10-22 17:27:36.000000000 -06:00
 - title: Listen all yall
   description: it's a sabotage!!
   rank: 1
@@ -13,8 +15,11 @@ ideas:
   updated_at: !ruby/object:DateTime 2013-10-17 17:25:29.000000000 -06:00
 - title: I like
   description: big butts and i cannot lie
-  tags: butts,hip hop
+  rank: 1
+  id: 2
+  tags: BUTTS,HIP HOP
   created_at: !ruby/object:DateTime 2013-10-17 17:17:39.000000000 -06:00
+  updated_at: !ruby/object:DateTime 2013-10-22 16:49:58.000000000 -06:00
 - title: you better check yourself
   description: before you wreck yourself
   tags: hip hop
@@ -47,3 +52,7 @@ ideas:
   description: wonderful idea
   tags: ideas
   created_at: !ruby/object:DateTime 2013-10-17 19:36:06.000000000 -06:00
+- title: as seen on TV
+  description: doesn't matter, just sell it for $19.99.  But wait!!!!
+  tags: TV, money
+  created_at: !ruby/object:DateTime 2013-10-21 16:01:08.000000000 -06:00

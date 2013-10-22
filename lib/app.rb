@@ -33,11 +33,7 @@ class IdeaBoxApp < Sinatra::Base
   end
 
   get '/' do
-    if params[:tag_sort]
-      ideas = IdeaStore.view_by_tag(params[:tag_sort])
-    else
-      ideas = IdeaStore.all.sort
-    end
+    ideas = IdeaStore.all.sort
     erb :index, locals: {
         ideas: ideas,
         idea: Idea.new,
@@ -50,15 +46,16 @@ class IdeaBoxApp < Sinatra::Base
     redirect '/'
   end
 
-  get '/by_tags' do
+  get '/tags/:tag' do |tag|
+    ideas = IdeaStore.grouped_by_tags(tag)
     erb :by_tags, locals: {
-        ideas: IdeaStore.grouped_by_tags,
+        ideas: ideas,
         idea: Idea.new,
         tags: IdeaStore.all_tags
       }
   end
 
-  get '/by_date' do
+  get '/date' do
     erb :by_date, locals: {
         ideas: IdeaStore.grouped_by_tags,
         idea: Idea.new,
@@ -73,7 +70,7 @@ class IdeaBoxApp < Sinatra::Base
 
   get '/:id/edit' do |id|
     idea = IdeaStore.find(id.to_i)
-    erb :edit, locals: {idea: idea}
+    erb :edit, locals: {idea: idea, tags: IdeaStore.all_tags}
   end
 
   put '/:id' do |id|
