@@ -55,6 +55,13 @@ class IdeaBoxApp < Sinatra::Base
       }
   end
 
+  get '/search' do
+    erb :search, locals: {
+        ideas: IdeaStore.search_by(params[:criteria]),
+        tags: IdeaStore.all_tags
+      }
+  end
+
   get '/date' do
     erb :by_date, locals: {
         ideas: IdeaStore.grouped_by_tags,

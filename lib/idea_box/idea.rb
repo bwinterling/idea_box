@@ -19,6 +19,10 @@ class Idea
     @tags.split(",").map {|tag| tag.strip}
   end
 
+  def searchable_text
+    title + description + tags
+  end
+
   def <=>(other)
     other.rank <=> rank
   end
