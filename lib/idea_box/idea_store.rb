@@ -1,3 +1,4 @@
+require 'pry'
 require 'yaml/store'
 
 class IdeaStore
@@ -12,6 +13,18 @@ class IdeaStore
     @database
   end
 
+  def self.groups
+    @groups ||= ["Personal", "Work"]
+  end
+
+  def self.current_group
+    @current_group ||= "Personal"
+  end
+
+  def self.current_group=(group)
+    @current_group = group
+  end
+
   def self.all
     ideas = []
     raw_ideas.each_with_index do |data, i|
@@ -20,8 +33,16 @@ class IdeaStore
     ideas
   end
 
+  def self.all_for_current_group
+    ideas = []
+    raw_ideas.each_with_index do |data, i|
+      ideas << Idea.new(data.merge("id" => i))
+    end
+    ideas.find_all { |idea| idea.group == current_group }
+  end
+
   def self.all_tags
-    all.map { |idea| idea.tags_array }.flatten.uniq.sort
+    all_for_current_group.map { |idea| idea.tags_array }.flatten.uniq.sort
   end
 
   def self.view_by_tag(tag)
@@ -36,10 +57,10 @@ class IdeaStore
     gbt = {}
     if tag == "All"
       all_tags.each do |key|
-        gbt[key] = all.find_all {|idea| idea.tags_array.include?(key)}
+        gbt[key] = all_for_current_group.find_all {|idea| idea.tags_array.include?(key)}
       end
     else
-      gbt[tag] = all.find_all {|idea| idea.tags_array.include?(tag)}
+      gbt[tag] = all_for_current_group.find_all {|idea| idea.tags_array.include?(tag)}
     end
     gbt
   end
@@ -55,15 +76,15 @@ class IdeaStore
   end
 
   def self.grouped_by_year
-    all.group_by { |idea| idea.created_at.strftime("%Y") }
+    all_for_current_group.group_by { |idea| idea.created_at.strftime("%Y") }
   end
 
   def self.grouped_by_month
-    all.group_by { |idea| idea.created_at.strftime("%b") }
+    all_for_current_group.group_by { |idea| idea.created_at.strftime("%b") }
   end
 
   def self.grouped_by_day
-    all.group_by { |idea| idea.created_at.strftime("%A") }
+    all_for_current_group.group_by { |idea| idea.created_at.strftime("%A") }
   end
 
   def self.search_by(criteria)
@@ -94,6 +115,7 @@ class IdeaStore
   end
 
   def self.update(id, params)
+    return if params["title"].empty?
     idea = find(id.to_i)
     updated_params = idea.to_h.merge(params)
     updated_params["updated_at"] = DateTime.now
@@ -103,7 +125,9 @@ class IdeaStore
   end
 
   def self.create(data)
+    return if data["title"].empty?
     data["created_at"] = DateTime.now
+    # data["group"] = current_group
     database.transaction do
       database['ideas'] << data
     end

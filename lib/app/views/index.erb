@@ -3,16 +3,11 @@
     <div class="row">
 
       <%= erb :form, locals: {idea: idea} %>
-      <div class="col-md-2 col-xs-2">
-      </div>
-      <div class="col-md-4 col-xs-4">
-        <img src="/images/ideabox.gif" alt="Idea in a Box">
-      </div>
 
     </div>
   </div>
 </div>
-
+    
 <div class="container">
   <div class="row">
     <%= erb :ideas, locals: {ideas: ideas} %>

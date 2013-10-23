@@ -5,16 +5,19 @@ class IdeaBoxApp < Sinatra::Base
   set :method_override, true
   set :root, 'lib/app'
 
-  configure :development do
-    register Sinatra::Reloader
-  end
+  # configure :development do
+  #   register Sinatra::Reloader
+  # end
 
   get '/' do
-    ideas = IdeaStore.all.sort
+    # ideas = IdeaStore.all.sort
+    ideas = IdeaStore.all_for_current_group.sort
     erb :index, locals: {
         ideas: ideas,
         idea: Idea.new,
-        tags: IdeaStore.all_tags
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
       }
   end
 
@@ -28,7 +31,9 @@ class IdeaBoxApp < Sinatra::Base
     erb :by_tags, locals: {
         ideas: ideas,
         idea: Idea.new,
-        tags: IdeaStore.all_tags
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
       }
   end
 
@@ -37,14 +42,18 @@ class IdeaBoxApp < Sinatra::Base
     erb :by_date, locals: {
         ideas: ideas,
         idea: Idea.new,
-        tags: IdeaStore.all_tags
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
       }
   end
 
   get '/search' do
     erb :search, locals: {
         ideas: IdeaStore.search_by(params[:criteria]),
-        tags: IdeaStore.all_tags
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
       }
   end
 
@@ -52,7 +61,9 @@ class IdeaBoxApp < Sinatra::Base
     erb :by_date, locals: {
         ideas: IdeaStore.grouped_by_tags,
         idea: Idea.new,
-        tags: IdeaStore.all_tags
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
       }
   end
 
@@ -63,7 +74,12 @@ class IdeaBoxApp < Sinatra::Base
 
   get '/:id/edit' do |id|
     idea = IdeaStore.find(id.to_i)
-    erb :edit, locals: {idea: idea, tags: IdeaStore.all_tags}
+    erb :edit, locals: {
+        idea: idea,
+        tags: IdeaStore.all_tags,
+        groups: IdeaStore.groups,
+        current_group: IdeaStore.current_group
+      }
   end
 
   put '/:id' do |id|
@@ -75,6 +91,11 @@ class IdeaBoxApp < Sinatra::Base
     idea = IdeaStore.find(id.to_i)
     idea.like!
     IdeaStore.update(id.to_i, idea.to_h)
+    redirect '/'
+  end
+
+  get '/group/:group' do |group|
+    IdeaStore.current_group = group
     redirect '/'
   end
 

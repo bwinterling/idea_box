@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   </head>
   <body>
-    <%= erb :nav, locals: {tags: tags} %>
+    
+    <%= erb :nav, locals: {tags: tags, current_group: current_group, groups: groups} %>
 
     <%= yield %>
+
     <footer class="bs-footer">
       <a href="http://thenounproject.com/noun/present/#icon-No2514" target="_blank">Present</a> designed by <a href="http://thenounproject.com/alvaroll" target="_blank">Alvaro Martinez Flores</a> from The Noun Project
     </footer>

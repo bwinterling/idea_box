@@ -5,6 +5,7 @@ GEM
     coderay (1.0.9)
     jsmin (1.0.1)
     method_source (0.8.2)
+    minitest (5.0.8)
     multi_json (1.8.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -38,7 +39,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  minitest
   pry
+  rack-test
   sinatra
   sinatra-assetpack
   sinatra-contrib

@@ -6,7 +6,8 @@
       <div class="panel-body">
         <strong>Desc:</strong> <%= idea.description %><br/>
         <strong>Tags:</strong> <%= idea.tags_array.join(",") %><br/>
-        <form action='/<%= idea.id %>/like' method='POST' style="display: inline">
+        <!-- <strong>Bumps:</strong><span class="badge"><%= idea.rank %></span><br/> -->
+        <form action='/<%= idea.id %>/like' method='POST' style="display: inline"><span class="badge"><%= idea.rank %></span>
           <input type='submit' value="Bump" class="btn btn-default btn-xs"/>
         </form>
         <form action="/<%= idea.id %>/edit" method='GET' style="display: inline">

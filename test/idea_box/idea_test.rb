@@ -1,7 +1,4 @@
-require 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-
+require './test/test_helper'
 require './lib/idea_box/idea'
 
 class IdeaTest < Minitest::Test
@@ -73,7 +70,7 @@ class IdeaTest < Minitest::Test
 
   def test_it_can_convert_tag_string_to_array
     idea = Idea.new(sample_idea)
-    assert_equal ["idea", "new", "money"], idea.tags_array
+    assert_equal ["IDEA", "NEW", "MONEY"], idea.tags_array
   end
 
   def test_it_can_convert_instance_variables_to_hash
