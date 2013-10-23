@@ -45,7 +45,25 @@ class IdeaStore
   end
 
   def self.grouped_by_dates(date)
+    case date
+    when "year" then grouped_by_year
+    when "month" then grouped_by_month
+    when "day" then grouped_by_day
+    else
+      all
+    end
+  end
 
+  def self.grouped_by_year
+    all.group_by { |idea| idea.created_at.strftime("%Y") }
+  end
+
+  def self.grouped_by_month
+    all.group_by { |idea| idea.created_at.strftime("%b") }
+  end
+
+  def self.grouped_by_day
+    all.group_by { |idea| idea.created_at.strftime("%A") }
   end
 
   def self.search_by(criteria)

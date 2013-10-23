@@ -4,13 +4,16 @@
     <title>IdeaBox</title>
     <meta name="ideabox" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <%= css :application, :media => 'screen' %>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.css">
   </head>
   <body>
     <%= erb :nav, locals: {tags: tags} %>
 
     <%= yield %>
-
+    <footer class="bs-footer">
+      <a href="http://thenounproject.com/noun/present/#icon-No2514" target="_blank">Present</a> designed by <a href="http://thenounproject.com/alvaroll" target="_blank">Alvaro Martinez Flores</a> from The Noun Project
+    </footer>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   </body>

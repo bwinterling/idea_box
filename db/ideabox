@@ -1,18 +1,5 @@
 ---
 ideas:
-- title: OMG!!
-  description: Becky, would you look at that butt!
-  rank: 2
-  id: 0
-  tags: HIP HOP,BUTTS
-  created_at: 
-  updated_at: !ruby/object:DateTime 2013-10-22 18:55:52.000000000 -06:00
-- title: Listen all yall
-  description: it's a sabotage!!
-  rank: 1
-  id: 1
-  tags: hip hop
-  updated_at: !ruby/object:DateTime 2013-10-17 17:25:29.000000000 -06:00
 - title: I like
   description: big butts and i cannot lie
   rank: 1
@@ -32,11 +19,6 @@ ideas:
   description: is better than no luck at all
   tags: luck
   created_at: !ruby/object:DateTime 2013-10-17 17:19:16.000000000 -06:00
-- title: ladi dodi
-  description: we like to party
-  rank: 0
-  id: 6
-  tags: hip hop
 - title: i just had the best idea
   description: if only I could remember it!
   tags: ideas
@@ -46,17 +28,32 @@ ideas:
   rank: 0
   id: 8
   tags: rock,prince
-  created_at: !ruby/object:DateTime 2013-10-17 17:27:16.000000000 -06:00
-  updated_at: !ruby/object:DateTime 2013-10-17 17:27:40.000000000 -06:00
+  created_at: !ruby/object:DateTime 2013-12-17 16:27:16.000000000 -07:00
+  updated_at: !ruby/object:DateTime 2013-12-17 16:27:40.000000000 -07:00
 - title: heather
   description: wonderful idea
   tags: ideas
-  created_at: !ruby/object:DateTime 2013-10-17 19:36:06.000000000 -06:00
+  created_at: !ruby/object:DateTime 2012-01-17 18:36:06.000000000 -07:00
 - title: as seen on TV
   description: doesn't matter, just sell it for $19.99.  But wait!!!!
   tags: TV, money
-  created_at: !ruby/object:DateTime 2013-10-21 16:01:08.000000000 -06:00
+  created_at: !ruby/object:DateTime 2009-10-21 16:01:08.000000000 -06:00
 - title: ice ice
   description: baby
   tags: hip hop, ice
-  created_at: !ruby/object:DateTime 2013-10-22 18:56:13.000000000 -06:00
+  created_at: !ruby/object:DateTime 2013-08-22 18:56:13.000000000 -06:00
+- title: OMG
+  description: Becky, would you look at that butt!!
+  rank: 2
+  id: 11
+  tags: BUTTS,HIP HOP
+  created_at: !ruby/object:DateTime 2013-10-22 21:04:17.000000000 -06:00
+  updated_at: !ruby/object:DateTime 2013-10-22 21:04:22.000000000 -06:00
+- title: Listen all yall
+  description: it's a sabotage!
+  tags: hip hop
+  created_at: !ruby/object:DateTime 2013-10-22 21:05:08.000000000 -06:00
+- title: Ladi Dodi
+  description: We like to party
+  tags: party, hip hop
+  created_at: !ruby/object:DateTime 2013-10-22 21:05:40.000000000 -06:00
