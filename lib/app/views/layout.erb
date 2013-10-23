@@ -7,11 +7,9 @@
     <%= css :application, :media => 'screen' %>
   </head>
   <body>
+    <%= erb :nav, locals: {tags: tags} %>
 
-  <%= erb :nav, locals: {tags: tags} %>
-
-  <%= yield %>
-
+    <%= yield %>
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

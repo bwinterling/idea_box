@@ -44,8 +44,12 @@ class IdeaStore
     gbt
   end
 
+  def self.grouped_by_dates(date)
+
+  end
+
   def self.search_by(criteria)
-    all.find_all { |idea| idea.searchable_text.include? criteria }.sort
+    all.find_all { |idea| idea.searchable_text.upcase.include? criteria.upcase }.sort
   end
 
   def self.raw_ideas

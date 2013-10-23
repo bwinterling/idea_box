@@ -1,9 +1,7 @@
 <div class="jumbotron">
   <div class="container">
     <div class="row">
-
       <%= erb :form, locals: {idea: idea} %>
-
     </div>
   </div>
 </div>
@@ -13,7 +11,7 @@
     <% ideas.each do |tag, ideas| %>
       <div class="container">
         <h3><%= tag %></h3>
-          <%= erb :ideas, locals: {ideas: ideas} %>
+        <%= erb :ideas, locals: {ideas: ideas} %>
       </div>
     <% end %>
   </div>
